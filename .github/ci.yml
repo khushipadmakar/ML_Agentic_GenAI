@@ -11,20 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.13
+          python-version: "3.13"
 
-      - name: Install Dependencies
+      - name: Install Requirements
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
 
       - name: Run Tests
-        run: |
-          pytest src/tests -v
+        run: pytest src/tests -v
